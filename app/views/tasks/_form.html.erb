@@ -1,7 +1,9 @@
 <%= simple_form_for task do |f| %>
   <%= f.input :title, input_html: { class: "form-control form-group" } %>
   <%= f.input :details, input_html: { class: "form-control form-group" } %>
-  <%= f.input :completed, type: 'checkbox' %>
+  <% unless f.object.new_record? %>
+    <%= f.input :completed, type: 'checkbox' %>
+  <% end %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
 
